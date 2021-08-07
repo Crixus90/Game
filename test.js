@@ -14,7 +14,6 @@ function setup() {
 }
 
 function draw() {
-  background(51);
   image(images[currentImageIndex], 0, 0, 100, 100);
   currentImageIndex++;
   if (currentImageIndex > 4) {

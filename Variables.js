@@ -1,7 +1,7 @@
 const CANVASHEIGHT = 600;
 const CANVASWIDTH = 800;
 
-const SPACE = 38;
+const UPARROW = 38;
 
 //images
 let backgroundImage;

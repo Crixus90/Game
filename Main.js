@@ -14,4 +14,5 @@ function keyPressed() {
 
 function preload() {
   pigeon = loadImage("assets/tile0.png");
+  backgroundImage = loadImage("assets/buildings.png");
 }

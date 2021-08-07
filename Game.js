@@ -1,6 +1,7 @@
 class Game {
   constructor() {
     this.player = new Player();
+    this.background = new Background();
   }
 
   setup() {
@@ -9,12 +10,13 @@ class Game {
 
   draw() {
     clear();
+    this.background.draw();
     background("#CEECF4");
     this.player.draw();
   }
 
   keyPressed() {
-    if (keyCode === SPACE) {
+    if (keyCode === UPARROW) {
       this.player.jump();
     }
   }
