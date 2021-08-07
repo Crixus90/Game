@@ -12,12 +12,17 @@ class Player {
     this.y -= 15;
     this.velocity -= this.jumpHeight;
   }
+  setup() {}
 
   draw() {
     this.velocity += GRAVITY;
     this.y += this.velocity;
 
-    image(pigeon, this.x, this.y, this.width, this.height);
+    image(pigeon[currentImageIndex], this.x, this.y, this.height, this.width);
+    currentImageIndex++;
+    if (currentImageIndex > 4) {
+      currentImageIndex = 0;
+    }
 
     if (this.y >= this.floor) {
       this.y = this.floor;

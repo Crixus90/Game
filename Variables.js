@@ -8,7 +8,8 @@ let backgroundImage;
 let buildings;
 let powerLines;
 let plane;
-let pigeon;
+let pigeon = [];
+var currentImageIndex = 0;
 
 //game variables
 const GRAVITY = 0.1;

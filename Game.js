@@ -11,8 +11,9 @@ class Game {
   draw() {
     clear();
     this.background.draw();
-    background("#CEECF4");
+
     this.player.draw();
+    this.player.setup();
   }
 
   keyPressed() {

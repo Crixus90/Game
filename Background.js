@@ -1,13 +1,13 @@
 class Background {
   constructor() {
     this.x = 0;
-    this.y = 0;
+    this.y = 300;
     this.width = CANVASWIDTH;
-    this.height = CANVASHEIGHT;
+    this.height = 300;
   }
 
   draw() {
-    this.x - +3;
+    this.x -= 3;
 
     image(backgroundImage, this.x, this.y, this.width, this.height);
     image(
