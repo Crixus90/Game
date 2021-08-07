@@ -7,7 +7,7 @@ class Background {
   }
 
   draw() {
-    this.x -= 3;
+    this.x -= 1;
 
     image(backgroundImage, this.x, this.y, this.width, this.height);
     image(
