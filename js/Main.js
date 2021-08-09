@@ -15,8 +15,12 @@ function keyPressed() {
 function preload() {
   pigeon = loadImage("assets/tile0.png");
   backgroundImage = loadImage("assets/buildings.png");
+  sidewalkImage = loadImage("assets/sidewalk.png");
 
   for (var i = 0; i < 5; i++) {
     pigeon[i] = loadImage("/assets/tile" + i + ".png");
+  }
+  for (var i = 0; i < 7; i++) {
+    man[i] = loadImage("assets/man" + i + ".png");
   }
 }
