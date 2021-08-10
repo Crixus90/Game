@@ -8,11 +8,16 @@ class Man {
   }
 
   draw() {
-    image(man[currentManIndex], this.x, this.y, this.height, this.width);
-    currentManIndex++;
-    if (currentManIndex > 6) {
-      currentManIndex = 0;
+    if (frameCount % 3 === 0) {
+      currentManIndex++;
     }
+    image(
+      man[currentManIndex % man.length],
+      this.x,
+      this.y,
+      this.height,
+      this.width
+    );
 
     this.x -= 3;
 

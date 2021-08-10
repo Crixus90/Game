@@ -46,7 +46,7 @@ class Game {
     this.player.setup();
 
     if (frameCount % (120 * 5) === 0) {
-      this.difficulty += 5;
+      this.difficulty += 1;
       console.log(this.difficulty);
     }
   }
