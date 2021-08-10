@@ -16,5 +16,7 @@ let man = [];
 var currentManIndex = 0;
 
 //game variables
-const GRAVITY = 0.1;
+const GRAVITY = 0.12;
 const gameStart = false;
+
+const scoreHolder = document.querySelector(".distance");
