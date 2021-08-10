@@ -9,6 +9,7 @@ class Game {
     this.score = 0;
     this.highScore = 0;
     this.difficulty = 1;
+    this.amount = 600;
   }
 
   setup() {
@@ -20,7 +21,7 @@ class Game {
     clear();
     this.background.draw();
 
-    if (frameCount % 200 === 0) {
+    if (frameCount % this.amount === 0) {
       this.powerLines.push(new Powerline(this.difficulty));
     }
     //score
@@ -45,9 +46,11 @@ class Game {
     this.player.draw();
     this.player.setup();
 
-    if (frameCount % (120 * 5) === 0) {
-      this.difficulty += 1;
+    if (frameCount % 1000 === 0) {
+      this.difficulty += 0.5;
+      this.amount -= 10;
       console.log(this.difficulty);
+      console.log(this.amount);
     }
   }
 
