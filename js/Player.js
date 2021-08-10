@@ -18,11 +18,17 @@ class Player {
     this.velocity += GRAVITY;
     this.y += this.velocity;
 
-    image(pigeon[currentPigeonIndex], this.x, this.y, this.height, this.width);
-    currentPigeonIndex++;
-    if (currentPigeonIndex > 4) {
-      currentPigeonIndex = 0;
+    if (frameCount % 3 === 0) {
+      currentPigeonIndex++;
     }
+
+    image(
+      pigeon[currentPigeonIndex % pigeon.length],
+      this.x,
+      this.y,
+      this.height,
+      this.width
+    );
 
     if (this.y >= this.floor) {
       this.y = this.floor;
