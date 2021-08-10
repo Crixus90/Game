@@ -14,7 +14,6 @@ class Game {
 
   setup() {
     canvas = createCanvas(CANVASWIDTH, CANVASHEIGHT);
-    canvas.position(250, 0);
   }
 
   draw() {
