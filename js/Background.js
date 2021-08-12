@@ -1,12 +1,12 @@
 class Background {
   constructor() {
     this.bgx = 0;
-    this.bgy = 200;
+    this.bgy = 100;
     this.swx = 0;
-    this.swy = 450;
+    this.swy = 0;
     this.width = CANVASWIDTH;
     this.bgHeight = 400;
-    this.swHeight = 150;
+    this.swHeight = CANVASHEIGHT;
 
     this.bgSpeed = 0.2;
     this.swSpeed = 1;

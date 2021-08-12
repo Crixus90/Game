@@ -3,7 +3,10 @@ class Game {
     this.player = new Player();
     this.man = new Man();
     this.background = new Background();
+    this.shit = new Shit(this.player.x, this.player.y);
     this.powerLines = [];
+    this.poops = [];
+    this.isDead = false;
 
     //game settings
     this.score = 0;
@@ -13,6 +16,7 @@ class Game {
   }
 
   setup() {
+    background("orange");
     canvas = createCanvas(CANVASWIDTH, CANVASHEIGHT);
   }
 
@@ -35,12 +39,21 @@ class Game {
         this.powerLines.splice(index, 1);
       }
 
-      if (this.collisionCheck(this.player, powerLine)) {
+      if (this.collisionCheck(this.player, powerLine) || this.player.y > 540) {
         this.score = 0;
         this.gameDifficulty = 1;
         scoreHolder.innerText = this.score;
+        this.isDead = true;
+        this.player.x -= this.difficulty;
       }
     });
+    if (this.player.y > 540) {
+      this.score = 0;
+      this.gameDifficulty = 1;
+      scoreHolder.innerText = this.score;
+      this.isDead = true;
+      this.player.x -= this.difficulty;
+    }
     this.man.draw();
     this.player.draw();
     this.player.setup();
@@ -48,14 +61,24 @@ class Game {
     if (frameCount % 1000 === 0) {
       this.difficulty += 0.5;
       this.amount -= 10;
-      console.log(this.difficulty);
-      console.log(this.amount);
+      // console.log("difficulty:" + this.difficulty);
+      // console.log("amount:" + this.amount);
     }
+
+    this.poops.forEach((poop, index) => {
+      poop.draw();
+    });
   }
 
   keyPressed() {
-    if (keyCode === UPARROW) {
-      this.player.jump();
+    if (!this.isDead) {
+      if (keyCode === UPARROW) {
+        this.player.jump();
+      }
+      if (keyCode === SPACE) {
+        this.poops.push(new Shit(this.player.x, this.player.y));
+        console.log(this.poops);
+      }
     }
   }
 

@@ -1,6 +1,6 @@
 class Man {
   constructor() {
-    this.y = 460;
+    this.y = 400;
     this.x = 1000;
     this.height = 120;
     this.width = 120;

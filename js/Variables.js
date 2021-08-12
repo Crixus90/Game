@@ -3,14 +3,17 @@ const CANVASHEIGHT = 600;
 const CANVASWIDTH = 800;
 
 const UPARROW = 38;
+const SPACE = 32;
 
 //images
+let menuImage;
 let backgroundImage;
 let sidewalkImage;
 let buildings;
 let powerLines;
 let plane;
 let pigeon = [];
+let poop;
 var currentPigeonIndex = 0;
 let man = [];
 var currentManIndex = 0;

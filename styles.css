@@ -1,8 +1,9 @@
 body {
-  background-color: rgb(185, 247, 247);
+  background-color: rgb(61, 57, 57);
 }
 
 canvas {
+  background-color: rgb(176, 224, 230);
   display: block;
   margin: 0 auto;
 }
