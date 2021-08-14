@@ -10,6 +10,7 @@ class Game {
 
     //game settings
     this.score = 0;
+    this.score2 = 0;
     this.highScore = 0;
     this.difficulty = 1;
     this.amount = 600;
@@ -45,6 +46,7 @@ class Game {
         scoreHolder.innerText = this.score;
         this.isDead = true;
         this.player.x -= this.difficulty;
+        // startGame = false;
       }
     });
     if (this.player.y > 540) {
@@ -67,6 +69,17 @@ class Game {
 
     this.poops.forEach((poop, index) => {
       poop.draw();
+
+      if (poop.bottomSide <= 0) {
+        this.poops.splice(index, 1);
+      }
+
+      if (this.poopCollisionCheck(poop, this.man)) {
+        this.poops.splice(index, 1);
+        this.score2++;
+        poopHolder.innerText = this.score2 + "💩";
+        console.log("shit landed");
+      }
     });
   }
 
@@ -77,7 +90,6 @@ class Game {
       }
       if (keyCode === SPACE) {
         this.poops.push(new Shit(this.player.x, this.player.y));
-        console.log(this.poops);
       }
     }
   }
@@ -96,6 +108,26 @@ class Game {
     }
 
     if (player.topSide > obstacle.bottomSide) {
+      return false;
+    }
+
+    return true;
+  }
+
+  poopCollisionCheck(poop, man) {
+    if (poop.bottomSide < man.topSide) {
+      return false;
+    }
+
+    if (poop.rightSide < man.leftSide) {
+      return false;
+    }
+
+    if (poop.leftSide > man.rightSide) {
+      return false;
+    }
+
+    if (poop.topSide > man.bottomSide) {
       return false;
     }
 

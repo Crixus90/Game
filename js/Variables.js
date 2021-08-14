@@ -23,3 +23,4 @@ const GRAVITY = 0.12;
 const gameStart = false;
 
 const scoreHolder = document.querySelector(".distance");
+const poopHolder = document.querySelector(".poop");
