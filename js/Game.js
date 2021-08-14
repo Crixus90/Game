@@ -6,7 +6,9 @@ class Game {
     this.shit = new Shit(this.player.x, this.player.y);
     this.powerLines = [];
     this.poops = [];
+    this.poopAmmo = 3;
     this.isDead = false;
+    this.chips = [];
 
     //game settings
     this.score = 0;
@@ -23,15 +25,17 @@ class Game {
 
   draw() {
     clear();
+    if (keyCode === UPARROW) {
+      startGame = true;
+    }
+    if (!startGame) {
+      image(menuImage, 0, 0, CANVASWIDTH, CANVASHEIGHT);
+      return;
+    }
     this.background.draw();
 
     if (frameCount % this.amount === 0) {
       this.powerLines.push(new Powerline(this.difficulty));
-    }
-    //score
-    if (frameCount % 60 === 0) {
-      this.score++;
-      scoreHolder.innerText = this.score + "m";
     }
     this.powerLines.forEach((powerLine, index) => {
       powerLine.draw();
@@ -46,7 +50,21 @@ class Game {
         scoreHolder.innerText = this.score;
         this.isDead = true;
         this.player.x -= this.difficulty;
-        redraw();
+        startGame = false;
+      }
+    });
+    if (frameCount % 1000 === 0) {
+      this.chips.push(new Chippy());
+    }
+    this.chips.forEach((chip, index) => {
+      chip.draw();
+      if (chip.rightSide <= 0) {
+        this.chips.splice(index, 1);
+      }
+      if (this.chipCollisionCheck(chip, this.player)) {
+        this.chips.splice(index, 1);
+        this.eatsound();
+        this.poopAmmo++;
       }
     });
     if (this.player.y > 540) {
@@ -77,10 +95,16 @@ class Game {
       if (this.poopCollisionCheck(poop, this.man)) {
         this.poops.splice(index, 1);
         this.score2++;
-        poopHolder.innerText = this.score2 + "💩";
+        poopHolder.innerText = this.score2;
         console.log("shit landed");
       }
     });
+
+    //score
+    if (frameCount % 60 === 0) {
+      this.score++;
+      scoreHolder.innerText = this.score + "m";
+    }
   }
 
   keyPressed() {
@@ -88,7 +112,8 @@ class Game {
       if (keyCode === UPARROW) {
         this.player.jump();
       }
-      if (keyCode === SPACE) {
+      if (keyCode === DOWNARROW && this.poopAmmo > 0) {
+        this.poopAmmo--;
         this.poopsound();
         this.poops.push(new Shit(this.player.x, this.player.y));
       }
@@ -134,9 +159,32 @@ class Game {
 
     return true;
   }
+  chipCollisionCheck(chip, player) {
+    if (chip.bottomSide < player.topSide) {
+      return false;
+    }
+
+    if (chip.rightSide < player.leftSide) {
+      return false;
+    }
+
+    if (chip.leftSide > player.rightSide) {
+      return false;
+    }
+
+    if (chip.topSide > player.bottomSide) {
+      return false;
+    }
+
+    return true;
+  }
 
   poopsound() {
     let poopSound = document.getElementById("poopSound");
     poopSound.play();
+  }
+  eatsound() {
+    let eatSound = document.getElementById("eatsound");
+    eatSound.play();
   }
 }

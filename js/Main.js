@@ -3,27 +3,15 @@ const game = new Game();
 let startGame = false;
 
 function draw() {
-  if (startGame) {
-    game.draw();
-  } else {
-    canvas = createCanvas(CANVASWIDTH, CANVASHEIGHT);
-    image(menuImage, 0, 0, CANVASWIDTH, CANVASHEIGHT);
-    if (keyCode === UPARROW) {
-      startGame = true;
-    }
-  }
+  game.draw();
 }
 
 function setup() {
-  if (startGame) {
-    game.setup();
-  }
+  game.setup();
 }
 
 function keyPressed() {
-  if (startGame) {
-    game.keyPressed();
-  }
+  game.keyPressed();
 }
 
 function preload() {
@@ -33,6 +21,7 @@ function preload() {
   sidewalkImage = loadImage("./assets/sidewalk.png");
   powerLines = loadImage("./assets/Powerline.png");
   poop = loadImage("./assets/Poop.png");
+  chippy = loadImage("./assets/chip.png");
 
   for (let i = 0; i < 5; i++) {
     pigeon[i] = loadImage("./assets/tile" + i + ".png");

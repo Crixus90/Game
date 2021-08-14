@@ -1,9 +1,23 @@
 body {
-  background-color: rgb(61, 57, 57);
+  background-color: rgb(156, 214, 154);
 }
 
 canvas {
   background-color: rgb(176, 224, 230);
   display: block;
   margin: 0 auto;
+}
+
+h1 {
+  color: blue;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+p {
+  font-size: 20px;
+  color: blue;
 }

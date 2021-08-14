@@ -4,18 +4,28 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My great game</title>
+  <title>Pigeon Simulator</title>
   <script src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.js"></script>
   <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/ico" href="./assets/favicon-32x32.png">
 </head>
 <body>
-  <h1>Distance: <span class="distance">0</span></h1>
-  <h1>Shits landed: <span class="poop">0💩</span></h1>
+  <header>
+    <div>
+      <h1>Distance: <span class="distance">0</span></h1>
+      <h1>Shits landed: <span class="poop">0</span></h1>
+    </div>
+    <div>
+      <p>Up arrow to start game <br>Up arrow to fly <br>Down arrow to release bowels</p>
+    </div>
+  </header>
 
   <audio id="poopSound" src="./assets/poop.wav"></audio>
+  <audio id='eatsound' src="./assets/eat.mp3"></audio>
   <script src="js/Variables.js"></script>
   <script src="js/Background.js"></script>
   <script src="js/Obstacles.js"></script>
+  <script src="js/Chip.js"></script>
   <script src="js/Shit.js"></script>
   <script src="js/Man.js"></script>
   <script src="js/Player.js"></script>

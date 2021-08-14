@@ -5,6 +5,7 @@ class Man {
     this.height = 120;
     this.width = 120;
     this.spawnTime = 1000;
+    this.speed = 2;
   }
 
   draw() {
@@ -19,7 +20,7 @@ class Man {
       this.width
     );
 
-    this.x -= 3;
+    this.x -= this.speed;
 
     if (this.x <= -this.width) {
       this.x = this.spawnTime;

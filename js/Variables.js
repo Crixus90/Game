@@ -3,7 +3,7 @@ const CANVASHEIGHT = 600;
 const CANVASWIDTH = 800;
 
 const UPARROW = 38;
-const SPACE = 32;
+const DOWNARROW = 40;
 
 //images
 let menuImage;
@@ -14,9 +14,10 @@ let powerLines;
 let plane;
 let pigeon = [];
 let poop;
-var currentPigeonIndex = 0;
+let currentPigeonIndex = 0;
 let man = [];
-var currentManIndex = 0;
+let currentManIndex = 0;
+let chippy;
 
 //game variables
 const GRAVITY = 0.12;
