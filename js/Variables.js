@@ -22,5 +22,7 @@ var currentManIndex = 0;
 const GRAVITY = 0.12;
 const gameStart = false;
 
+//sounds
+
 const scoreHolder = document.querySelector(".distance");
 const poopHolder = document.querySelector(".poop");

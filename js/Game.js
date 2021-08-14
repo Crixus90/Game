@@ -46,7 +46,7 @@ class Game {
         scoreHolder.innerText = this.score;
         this.isDead = true;
         this.player.x -= this.difficulty;
-        // startGame = false;
+        redraw();
       }
     });
     if (this.player.y > 540) {
@@ -89,6 +89,7 @@ class Game {
         this.player.jump();
       }
       if (keyCode === SPACE) {
+        this.poopsound();
         this.poops.push(new Shit(this.player.x, this.player.y));
       }
     }
@@ -132,5 +133,10 @@ class Game {
     }
 
     return true;
+  }
+
+  poopsound() {
+    let poopSound = document.getElementById("poopSound");
+    poopSound.play();
   }
 }

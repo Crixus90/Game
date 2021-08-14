@@ -27,6 +27,7 @@ function keyPressed() {
 }
 
 function preload() {
+  //images
   menuImage = loadImage("./assets/ps.png");
   backgroundImage = loadImage("./assets/buildings.png");
   sidewalkImage = loadImage("./assets/sidewalk.png");
