@@ -1,7 +1,7 @@
 class Player {
   constructor() {
-    this.y = 0;
-    this.x = 50;
+    this.y = 100;
+    this.x = 100;
     this.height = 50;
     this.width = 50;
     this.velocity = 0;
@@ -9,13 +9,13 @@ class Player {
   }
 
   jump() {
-    this.y -= 10;
+    this.y -= 9;
     this.velocity -= this.jumpHeight;
   }
   setup() {}
 
   draw() {
-    this.velocity += GRAVITY;
+    this.velocity += GRAVITY / 2;
     this.y += this.velocity;
 
     if (frameCount % 3 === 0) {

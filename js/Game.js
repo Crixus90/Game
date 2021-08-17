@@ -1,5 +1,9 @@
 class Game {
   constructor() {
+    this.set();
+  }
+
+  set() {
     this.player = new Player();
     this.man = new Man();
     this.background = new Background();
@@ -7,6 +11,8 @@ class Game {
     this.powerLines = [];
     this.poops = [];
     this.poopAmmo = 3;
+    this.poopImgs = new Poo();
+    this.poopAmmoImgArr = [];
     this.isDead = false;
     this.chips = [];
 
@@ -25,14 +31,9 @@ class Game {
 
   draw() {
     clear();
-    if (keyCode === UPARROW) {
-      startGame = true;
-    }
-    if (!startGame) {
-      image(menuImage, 0, 0, CANVASWIDTH, CANVASHEIGHT);
-      return;
-    }
+
     this.background.draw();
+    this.poopImgs.draw();
 
     if (frameCount % this.amount === 0) {
       this.powerLines.push(new Powerline(this.difficulty));
@@ -46,6 +47,7 @@ class Game {
 
       if (this.collisionCheck(this.player, powerLine) || this.player.y > 540) {
         this.score = 0;
+        this.score2 = 0;
         this.gameDifficulty = 1;
         scoreHolder.innerText = this.score;
         this.isDead = true;
@@ -69,10 +71,12 @@ class Game {
     });
     if (this.player.y > 540) {
       this.score = 0;
+      this.score2 = 0;
       this.gameDifficulty = 1;
       scoreHolder.innerText = this.score;
       this.isDead = true;
       this.player.x -= this.difficulty;
+      startGame = false;
     }
     this.man.draw();
     this.player.draw();

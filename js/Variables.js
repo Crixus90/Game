@@ -14,13 +14,14 @@ let powerLines;
 let plane;
 let pigeon = [];
 let poop;
+let poopImg;
 let currentPigeonIndex = 0;
 let man = [];
 let currentManIndex = 0;
 let chippy;
 
 //game variables
-const GRAVITY = 0.12;
+const GRAVITY = 0.15;
 const gameStart = false;
 
 //sounds

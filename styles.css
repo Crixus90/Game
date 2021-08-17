@@ -9,7 +9,7 @@ canvas {
 }
 
 h1 {
-  color: blue;
+  color: rgb(29, 82, 141);
 }
 
 header {
@@ -19,5 +19,5 @@ header {
 
 p {
   font-size: 20px;
-  color: blue;
+  color: rgb(29, 82, 141);
 }

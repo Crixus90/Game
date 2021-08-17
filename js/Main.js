@@ -3,6 +3,12 @@ const game = new Game();
 let startGame = false;
 
 function draw() {
+  if (!startGame) {
+    console.log("game ended");
+    image(menuImage, 0, 0, CANVASWIDTH, CANVASHEIGHT);
+    // noLoop();
+    return;
+  }
   game.draw();
 }
 
@@ -11,6 +17,11 @@ function setup() {
 }
 
 function keyPressed() {
+  console.log("hello");
+  if (!startGame) {
+    startGame = true;
+    game.set();
+  }
   game.keyPressed();
 }
 
@@ -22,6 +33,7 @@ function preload() {
   powerLines = loadImage("./assets/Powerline.png");
   poop = loadImage("./assets/Poop.png");
   chippy = loadImage("./assets/chip.png");
+  poopImg = loadImage("./assets/pooicon.png");
 
   for (let i = 0; i < 5; i++) {
     pigeon[i] = loadImage("./assets/tile" + i + ".png");
