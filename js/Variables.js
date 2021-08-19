@@ -21,7 +21,7 @@ let currentManIndex = 0;
 let chippy;
 
 //game variables
-const GRAVITY = 0.15;
+const GRAVITY = 0.12;
 const gameStart = false;
 
 //sounds

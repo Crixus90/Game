@@ -4,7 +4,6 @@ let startGame = false;
 
 function draw() {
   if (!startGame) {
-    console.log("game ended");
     image(menuImage, 0, 0, CANVASWIDTH, CANVASHEIGHT);
     // noLoop();
     return;
@@ -17,7 +16,6 @@ function setup() {
 }
 
 function keyPressed() {
-  console.log("hello");
   if (!startGame) {
     startGame = true;
     game.set();

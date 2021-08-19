@@ -5,7 +5,7 @@ class Man {
     this.height = 120;
     this.width = 120;
     this.spawnTime = 1000;
-    this.speed = 2;
+    this.speed = 4;
   }
 
   draw() {

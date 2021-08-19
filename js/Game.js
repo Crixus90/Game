@@ -11,8 +11,8 @@ class Game {
     this.powerLines = [];
     this.poops = [];
     this.poopAmmo = 3;
-    this.poopImgs = new Poo();
-    this.poopAmmoImgArr = [];
+    this.poopImg = new Poo();
+    this.poopAmmoImgArr = [new Poo(600), new Poo(625), new Poo(650)];
     this.isDead = false;
     this.chips = [];
 
@@ -21,7 +21,7 @@ class Game {
     this.score2 = 0;
     this.highScore = 0;
     this.difficulty = 1;
-    this.amount = 600;
+    this.amount = 1000;
   }
 
   setup() {
@@ -33,7 +33,9 @@ class Game {
     clear();
 
     this.background.draw();
-    this.poopImgs.draw();
+    this.poopAmmoImgArr.forEach((poopImg, index) => {
+      poopImg.draw();
+    });
 
     if (frameCount % this.amount === 0) {
       this.powerLines.push(new Powerline(this.difficulty));
@@ -67,6 +69,7 @@ class Game {
         this.chips.splice(index, 1);
         this.eatsound();
         this.poopAmmo++;
+        this.poopAmmoImgArr.push(new Poo());
       }
     });
     if (this.player.y > 540) {
@@ -74,6 +77,7 @@ class Game {
       this.score2 = 0;
       this.gameDifficulty = 1;
       scoreHolder.innerText = this.score;
+      poopHolder.innerText = this.score2;
       this.isDead = true;
       this.player.x -= this.difficulty;
       startGame = false;
@@ -82,7 +86,7 @@ class Game {
     this.player.draw();
     this.player.setup();
 
-    if (frameCount % 1000 === 0) {
+    if (frameCount % 120 === 0) {
       this.difficulty += 0.5;
       this.amount -= 10;
       // console.log("difficulty:" + this.difficulty);
@@ -120,6 +124,7 @@ class Game {
         this.poopAmmo--;
         this.poopsound();
         this.poops.push(new Shit(this.player.x, this.player.y));
+        this.poopAmmoImgArr.pop();
       }
     }
   }

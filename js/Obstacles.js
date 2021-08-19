@@ -1,11 +1,10 @@
 class Powerline {
   constructor(difficulty) {
     this.width = 94;
-    this.height = random(250, 350);
+    this.height = random(250, 450);
     this.x = CANVASWIDTH + this.width;
     this.y = CANVASHEIGHT - this.height;
-    const gameDiff = 1 * difficulty;
-    this.speed = gameDiff;
+    this.speed = difficulty;
   }
 
   draw() {
