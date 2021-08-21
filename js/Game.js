@@ -31,7 +31,7 @@ class Game {
 
   draw() {
     clear();
-
+    poopAmmoHolder.innerText = this.poopAmmo;
     this.background.draw();
     // this.poopAmmoImgArr.forEach((poopImg, index) => {
     //   poopImg.draw();

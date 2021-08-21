@@ -28,3 +28,4 @@ const gameStart = false;
 
 const scoreHolder = document.querySelector(".distance");
 const poopHolder = document.querySelector(".poop");
+const poopAmmoHolder = document.querySelector(".poopAmmo");
