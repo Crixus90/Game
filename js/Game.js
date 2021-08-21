@@ -33,9 +33,9 @@ class Game {
     clear();
 
     this.background.draw();
-    this.poopAmmoImgArr.forEach((poopImg, index) => {
-      poopImg.draw();
-    });
+    // this.poopAmmoImgArr.forEach((poopImg, index) => {
+    //   poopImg.draw();
+    // });
 
     if (frameCount % this.amount === 0) {
       this.powerLines.push(new Powerline(this.difficulty));
@@ -57,7 +57,7 @@ class Game {
         startGame = false;
       }
     });
-    if (frameCount % 1000 === 0) {
+    if (frameCount % 600 === 0) {
       this.chips.push(new Chippy());
     }
     this.chips.forEach((chip, index) => {
@@ -101,6 +101,7 @@ class Game {
       }
 
       if (this.poopCollisionCheck(poop, this.man)) {
+        this.noosound();
         this.poops.splice(index, 1);
         this.score2++;
         poopHolder.innerText = this.score2;
@@ -124,7 +125,7 @@ class Game {
         this.poopAmmo--;
         this.poopsound();
         this.poops.push(new Shit(this.player.x, this.player.y));
-        this.poopAmmoImgArr.pop();
+        // this.poopAmmoImgArr.pop();
       }
     }
   }
@@ -195,5 +196,9 @@ class Game {
   eatsound() {
     let eatSound = document.getElementById("eatsound");
     eatSound.play();
+  }
+  noosound() {
+    let nooSound = document.getElementById("noo");
+    nooSound.play();
   }
 }
