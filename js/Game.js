@@ -21,7 +21,7 @@ class Game {
     this.score2 = 0;
     this.highScore = 0;
     this.difficulty = 1;
-    this.amount = 1000;
+    this.amount = 600;
   }
 
   setup() {
@@ -86,11 +86,11 @@ class Game {
     this.player.draw();
     this.player.setup();
 
-    if (frameCount % 120 === 0) {
+    if (frameCount % 240 === 0) {
       this.difficulty += 0.5;
       this.amount -= 10;
-      // console.log("difficulty:" + this.difficulty);
-      // console.log("amount:" + this.amount);
+      console.log("difficulty:" + this.difficulty);
+      console.log("amount:" + this.amount);
     }
 
     this.poops.forEach((poop, index) => {
